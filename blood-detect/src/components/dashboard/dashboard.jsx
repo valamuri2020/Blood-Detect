@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { useAuth } from  "../../contexts/AuthContext"
 import { Button } from 'react-bootstrap'
 import { Link, useHistory } from 'react-router-dom'
+import { Navbar } from '../navbar/navbar'
 
 export const Dashboard = () => {
     const { currentUser, logout } = useAuth()
@@ -18,6 +19,7 @@ export const Dashboard = () => {
     }
     return (
         <>
+            <Navbar />
            dashboard
            <h3>
            {currentUser.email}
