@@ -6,15 +6,15 @@ export const Container = styled.div`
   width: 100%;
   padding: 10px 20px;
   color: white;
-  background-color: #f06b6b;
+  background-color: ${(props) => props.bg_color ?? "darkblue"};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index:2;
+  z-index: 2;
 `;
 
 export const Title = styled.h3`
   a {
-    color:white;
+    color: white;
   }
-`
+`;

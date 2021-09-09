@@ -12,6 +12,7 @@ export const Navbar = (props) => {
   const history = useHistory();
   
   const { displayName, email } = currentUser;
+  const darkblue = "#5C5CFF";
 
   const handleLogOut = async () => {
     setError("");
@@ -23,14 +24,14 @@ export const Navbar = (props) => {
     }
   };
   return (
-    <Container>
+    <Container bg_color={darkblue}>
       <Title>
         <a href='/'>Malaria Detect</a>
       </Title>
       {error && <Alert variant="warning">{error}</Alert>}
       <div>
         <Dropdown>
-          <Dropdown.Toggle variant="danger" style={{backgroundColor:'#f06b6b', border: 'none'}}>
+          <Dropdown.Toggle style={{backgroundColor: darkblue, border: 'none'}}>
             <FaUserCircle style={{ fontSize: "2em" }} />
           </Dropdown.Toggle>
           <Dropdown.Menu>

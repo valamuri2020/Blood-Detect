@@ -1,17 +1,17 @@
 import styled from "styled-components";
 import { Container, FormControl, FormLabel, Button } from "react-bootstrap";
 
-const gray = "#ccc";
+const white = "#fff";
 const darkblue = "#5C5CFF";
 const lightblue = "#03a9f4";
-const paleblue = "#e6f6fe";
+const lavender = "#eeb4ff";
 
 export const RegisterContainer = styled(Container)`
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: ${paleblue};
+  background-color: ${lavender};
   max-width: 100%;
 `;
 
@@ -36,21 +36,21 @@ export const ContentWrapper = styled.div`
 export const Header = styled.h2`
   text-align: center;
   margin-bottom: 4px;
-  color: ${gray};
+  color: ${white};
   padding-bottom: 1rem;
 `;
 
 export const WhiteFormLabel = styled(FormLabel)`
-  color: ${gray};
+  color: ${white};
   font-size: 18px;
 `;
 export const Textbox = styled(FormControl)`
-  background-color: ${paleblue};
+  background-color: ${lavender};
   &:focus {
     border-color: ${darkblue};
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(133, 63, 63, 0.6);
     }
-    background-color: ${paleblue};
+    background-color: ${lavender};
     color: ${darkblue};
   }
   color: ${darkblue};
@@ -62,10 +62,11 @@ export const SignInText = styled.div`
   text-align: center;
   margin-top: 10px;
   width: 100%;
+  color: white;
 `;
 
 export const ForgotPassword = styled(SignInText)`
-  color: ${gray};
+  color: ${white};
   &:hover {
     text-decoration: none;
   }
@@ -75,8 +76,8 @@ export const SubmitButton = styled(Button)`
   background-color: ${lightblue};
   border-color: ${lightblue};
   &:hover {
-    background-color: ${paleblue};
-    border-color: ${paleblue};
+    background-color: ${lavender};
+    border-color: ${lavender};
     color: #222;
   }
   width: 100%;
