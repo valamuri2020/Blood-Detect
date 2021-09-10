@@ -15,7 +15,7 @@ export const RegisterContainer = styled(Container)`
   max-width: 100%;
 `;
 
-export const DarkPinkCard = styled.div`
+export const DarkBlueCard = styled.div`
   background-color: ${darkblue};
   border-radius: 10px;
   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.14), 0px 6px 9px rgba(0, 0, 0, 0.12),
