@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { Alert, Form, FormControl } from "react-bootstrap";
 import {
   RegisterContainer,
-  DarkPinkCard,
+  DarkBlueCard,
   ContentWrapper,
   CardContent,
   SubmitButton,
@@ -41,7 +41,7 @@ export const ForgotPassword = (props) => {
   return (
     <RegisterContainer>
       <ContentWrapper classname="w-100">
-        <DarkPinkCard>
+        <DarkBlueCard>
           <CardContent>
             <Header>Password Reset</Header>
             {error && <Alert variant="warning">{error}</Alert>}
@@ -66,7 +66,7 @@ export const ForgotPassword = (props) => {
             </Link>
             
           </CardContent>
-        </DarkPinkCard>
+        </DarkBlueCard>
       </ContentWrapper>
     </RegisterContainer>
   );

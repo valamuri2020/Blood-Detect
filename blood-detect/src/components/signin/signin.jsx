@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { Alert, Form, FormControl } from "react-bootstrap";
 import {
   RegisterContainer,
-  DarkPinkCard,
+  DarkBlueCard,
   ContentWrapper,
   CardContent,
   SubmitButton,
@@ -42,7 +42,7 @@ export const SignIn = (props) => {
   return (
     <RegisterContainer>
       <ContentWrapper classname="w-100">
-        <DarkPinkCard>
+        <DarkBlueCard>
           <CardContent>
             <Header>Sign In</Header>
             {error && <Alert variant="warning">{error}</Alert>}
@@ -69,7 +69,7 @@ export const SignIn = (props) => {
               <ForgotPassword>Forgot Password?</ForgotPassword>
             </Link>
           </CardContent>
-        </DarkPinkCard>
+        </DarkBlueCard>
       </ContentWrapper>
     </RegisterContainer>
   );
