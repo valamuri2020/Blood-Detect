@@ -16,7 +16,8 @@ export const Dashboard = () => {
     "https://cdn.pixabay.com/photo/2017/07/08/11/10/dot-pattern-2484077_960_720.jpg"
   );
   const [uploaded, setUploaded] = useState(true);
-
+  const [prediction, setPrediction] = useState("");
+  
   const handleFileUpload = (e) => {
     setUploaded(false);
     const reader = new FileReader();
@@ -27,14 +28,23 @@ export const Dashboard = () => {
     };
     reader.readAsDataURL(e.target.files[0]);
     console.log(e.target.files[0]);
+    setFile(e.target.files[0])
   };
 
   useEffect(() => {
     console.log("dashboard loaded");
   }, [img]);
 
+  useEffect(() => {
+    console.log(prediction["data"]);
+  }, [prediction]);
+
   const handleFileSubmit = (e) => {
-    console.log(img);
+    let data = new FormData()
+    data.append('file', file)
+
+    axios.post("/predict", data)
+    .then((res) => setPrediction(res.data))
   };
 
   return (
