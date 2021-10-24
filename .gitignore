@@ -1,3 +1,4 @@
 /images
 /blood-detect/flask-server/env
+/blood-detect/flask-server/malaria_detector.h5
 /blood-detect/functions/

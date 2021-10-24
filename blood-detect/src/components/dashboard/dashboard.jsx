@@ -31,13 +31,6 @@ export const Dashboard = () => {
     setFile(e.target.files[0])
   };
 
-  useEffect(() => {
-    console.log("dashboard loaded");
-  }, [img]);
-
-  useEffect(() => {
-    console.log(prediction["data"]);
-  }, [prediction]);
 
   const handleFileSubmit = (e) => {
     let data = new FormData()
@@ -85,9 +78,11 @@ export const Dashboard = () => {
             </SubmitButton>
           </div>
         </Row>
-      </PageWrapper>
+        <Row>
+          {prediction && (<>This cell is: {prediction}</>) }
 
-      {/* <Button variant="link" onClick={handleSubmit}>Log out</Button> */}
+        </Row>
+      </PageWrapper>
     </>
   );
 };
