@@ -14,7 +14,7 @@ Malaria Detect is intended as a tool in the hospital alongside the clinician. It
 
 Healthy Blood Cell |  Infected Blood Cell
 :-------------------------:|:-------------------------:
-![image](assets/healthy_cell.png)  |  ![image](assets/infected_cell_untransformed.png)
+![image](blood-detect/assets/healthy_cell.png)  |  ![image](blood-detect/assets/infected_cell_untransformed.png)
 
 
 ## How I built it 🛠️
@@ -27,7 +27,7 @@ The model correctly classifies blood cells with an __accuracy__ of __87%__. Firs
 
 Infected Cell (Before Transformation) |  Infected (After Transformation)
 :-------------------------:|:-------------------------:
-![image](assets/infected_cell_untransformed.png)  |  ![image](assets/infected_cell_transformed.png)
+![image](blood-detect/assets/infected_cell_untransformed.png)  |  ![image](blood-detect/assets/infected_cell_transformed.png)
 
 Notice the zoom, shear (cuts) and slight rotation in the transformed image.
 
