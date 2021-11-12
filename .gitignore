@@ -1,6 +1,4 @@
-
-blood-detect/.firebaserc
-blood-detect/.firebaserc
-*.log
-blood-detect/.firebaserc
-blood-detect/.firebaserc
+/images
+/blood-detect/flask-server/env
+/blood-detect/flask-server/malaria_detector.h5
+/blood-detect/functions/
