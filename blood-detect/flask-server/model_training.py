@@ -1,9 +1,14 @@
+"""
+This is a .py version of the Colab notebook at 
+https://colab.research.google.com/drive/1ZZgkpYXL33pKm4fZ-7tjoWiXDO9o_jUY?usp=sharing
 
+"""
 import os
 import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
+import math 
 
 my_data_dir = '/content/cell_images'
 os.listdir(my_data_dir)
@@ -25,20 +30,14 @@ infected_cell = imread(infected_cell)
 
 plt.imshow(infected_cell)
 
-infected_cell.shape
-
 healthy_cell = train_path + '/uninfected/' + os.listdir(train_path+'/uninfected')[0]
 healthy_cell = imread(healthy_cell)
 plt.imshow(healthy_cell)
 
-len(os.listdir(train_path+'/parasitized'))
-
-len(os.listdir(train_path+'/uninfected'))
-
 dim1 = []
 dim2 = []
+
 for image_filename in os.listdir(test_path+'/uninfected'):
-    
     img = imread(test_path+'/uninfected'+'/'+image_filename)
     d1,d2,colors = img.shape
     dim1.append(d1)
@@ -46,37 +45,37 @@ for image_filename in os.listdir(test_path+'/uninfected'):
 
 sns.jointplot(dim1,dim2, color='purple' )
 
-import math 
 image_shape = (math.floor(np.mean(dim1)), math.floor(np.mean(dim2)), 3)
-
-image_shape
 
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-# help(ImageDataGenerator)
-
-# artificially expanding data set by randomly rotating and scaling them
+# artificially expanding data set by randomly applying transformations on them
+# randomly choose a % between 0-10 and scale the transformation by that factor
 image_generator = ImageDataGenerator(rotation_range=20, 
                                      width_shift_range=0.1, 
                                      height_shift_range=0.1,
                                      zoom_range=0.1,
                                      shear_range=0.1,
                                      horizontal_flip=True,
-                                     fill_mode='nearest') # randomly choose a % between 0-10 and scale the transformation by that factor
+                                     fill_mode='nearest') 
 
+
+# pixel values are normalized
 plt.imshow(infected_cell)
-# values are already normalized
 
-plt.imshow(image_generator.random_transform(infected_cell))
 # example of a randomly transformed image
+plt.imshow(image_generator.random_transform(infected_cell))
 
 image_generator.flow_from_directory(train_path)
-# the directories must follow a specific format to use flow_from_directory
 
 image_generator.flow_from_directory(test_path)
 
+
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Conv2D, MaxPool2D, Dropout, Flatten
+
+########## Model ##########
+# larger image sizes require more convolutional layers to detect patterns
 
 model = Sequential()
 
@@ -98,16 +97,15 @@ model.add(Dense(1, activation='sigmoid'))
 
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
+########## Model ##########
 
-# larger image sizes require more convolutional layers to detect patterns
-
-model.summary()
 
 from tensorflow.keras.callbacks import EarlyStopping
 
 early_stop = EarlyStopping(monitor='val_loss', patience=2)
 
-batch_size = 16 # choose a power of 2, smaller batch size is proportional to a longer training time
+# smaller batch size is proportional to a longer training time
+batch_size = 16 
 
 train_image_gen = image_generator.flow_from_directory(train_path, 
                                                       target_size=image_shape[:2], 
@@ -124,17 +122,15 @@ test_image_gen = image_generator.flow_from_directory(test_path,
 
 train_image_gen.class_indices
 
-# results = model.fit_generator(train_image_gen, 
-#                               epochs=10, 
-#                               validation_data=test_image_gen, 
-#                               callbacks=[early_stop])
-
-model.metrics_names
+results = model.fit_generator(train_image_gen, 
+                              epochs=10, 
+                              validation_data=test_image_gen, 
+                              callbacks=[early_stop])
 
 pred = model.predict_generator(test_image_gen)
 
-predictions = pred >= 0.7 # if probability > 70%, classify as uninfected
-predictions
+# if probability > 70%, classify as uninfected
+predictions = pred >= 0.7 
 
 from sklearn.metrics import classification_report, confusion_matrix
 
