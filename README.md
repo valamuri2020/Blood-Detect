@@ -1,13 +1,8 @@
-<!-- TODO:
-    - clean up UI code?
-    - add jupyter notebook as .py file
- -->
-
 # Malaria Detect
 
 ## Inspiration 💡
 I wanted to dive deeper into image processing and learn to work with CNNs. The prosepect of using Deep learning on blood cell images was inriguing and pushed me to take on this project. 
-Malaria needs no introduction, a disease transmitted by the bite of infected diseases that affects the red blood cells in our bodies. Although now rare in the U.S., it can be hard to identify as malaria, which is why lab tests/imaging are always needed. This project aims to be a tool in that process to help more accuratly and quickly diagnose the illness. 
+Malaria needs no introduction, a disease transmitted by the bite of infected diseases that affects the red blood cells in our bodies. Although now rare in the U.S., it can be hard to identify malaria, which is why lab tests/imaging are always needed. This project aims to be a tool in that process to help more accuratly and quickly diagnose the illness. 
 
 ## What it does ⚙️
 Malaria Detect is intended as a tool in the hospital alongside the clinician. It accepts an image of a red blood cell, applies a binary classification deep learning model to determine if the sample is infected with malaria.
