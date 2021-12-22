@@ -30,7 +30,9 @@ The model correctly classifies blood cells with an **accuracy** of **87%**. Firs
 
 Notice the zoom, shear (cuts) and slight rotation in the transformed image.
 
-Note: You can find my work developing the model in this [Google Colab notebook](https://colab.research.google.com/drive/1ZZgkpYXL33pKm4fZ-7tjoWiXDO9o_jUY?usp=sharing).
+Note: You can find my work developing the model in this Colab Notebook
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ZZgkpYXL33pKm4fZ-7tjoWiXDO9o_jUY?usp=sharing)
 
 The following were used in this project:
 
